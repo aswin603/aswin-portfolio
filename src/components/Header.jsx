@@ -12,23 +12,22 @@ const NAV_LINKS = [
 export default function Header({ isDark, onToggleTheme, menuOpen, onMenuToggle, onNavClick }) {
   return (
     <header className="header">
-      <nav className="nav container">
-        <a href="#hero" className="nav-logo" onClick={onNavClick}>
-          AK
-        </a>
-        <button
-          type="button"
-          className="theme-toggle"
-          aria-label="Toggle dark mode"
-          onClick={onToggleTheme}
-        >
-          <span className="theme-icon sun" aria-hidden="true">
-            ☀️
-          </span>
-          <span className="theme-icon moon" aria-hidden="true">
-            🌙
-          </span>
-        </button>
+      <nav className="nav container nav-container">
+        <div className="nav-left">
+          <a href="#hero" className="nav-logo" onClick={onNavClick}>
+            AK
+          </a>
+          <a
+            href={`${import.meta.env.BASE_URL}${encodeURI('ASWIN K B ressume.pdf')}`}
+            className="nav-resume"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onNavClick}
+          >
+            Resume
+          </a>
+        </div>
+        <div className="nav-right">
         <button
           type="button"
           className="nav-toggle"
@@ -49,6 +48,20 @@ export default function Header({ isDark, onToggleTheme, menuOpen, onMenuToggle, 
             </li>
           ))}
         </ul>
+        <button
+          type="button"
+          className="theme-toggle"
+          aria-label="Toggle dark mode"
+          onClick={onToggleTheme}
+        >
+          <span className="theme-icon sun" aria-hidden="true">
+            ☀️
+          </span>
+          <span className="theme-icon moon" aria-hidden="true">
+            🌙
+          </span>
+        </button>
+        </div>
       </nav>
     </header>
   );
