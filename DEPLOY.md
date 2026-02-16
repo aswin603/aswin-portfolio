@@ -1,27 +1,35 @@
 # Deploy to GitHub Pages
 
-Your site will be at **https://aswin603.github.io/aswin-portfolio/**.
+Live site: **https://aswin603.github.io/aswin-portfolio/**
 
-## Option 1: Deploy with GitHub Actions (recommended)
+## One-time setup on GitHub
 
-This avoids the `spawn ENAMETOOLONG` error on Windows.
+1. **Create the repo** (if you haven’t):  
+   https://github.com/new → name: `aswin-portfolio` → Create repository.
 
-1. Push your code (including `.github/workflows/deploy-gh-pages.yml`) to GitHub.
-2. In the repo: **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Every push to `main` will build and deploy. You can also run **Actions → Deploy to GitHub Pages → Run workflow** manually.
+2. **Connect and push** (from your project folder):
+   ```bash
+   git remote add origin https://github.com/aswin603/aswin-portfolio.git
+   git add .
+   git commit -m "Portfolio ready for GitHub Pages"
+   git branch -M main
+   git push -u origin main
+   ```
 
-## Option 2: Deploy locally with `gh-pages`
+3. **Enable Pages**
+   - Repo → **Settings** → **Pages** (under Code and automation).
+   - **Build and deployment** → **Source**: **Deploy from a branch**.
+   - **Branch**: select **gh-pages** (appears after the first workflow run).
+   - **Folder**: **/ (root)** → **Save**.
 
-If you get `Error: spawn ENAMETOOLONG`:
+4. **First deploy**  
+   After you push `main`, the **Deploy to GitHub Pages** workflow runs and creates/updates the `gh-pages` branch.  
+   If **gh-pages** doesn’t show in the branch list yet, go to **Actions** → **Deploy to GitHub Pages** → **Run workflow** → **Run workflow**, then wait for it to finish and set **Settings → Pages** as above.
 
-- Move the project to a **shorter path** (e.g. `C:\dev\aswin-portfolio`), then run:
-  ```bash
-  npm run build
-  npm run deploy
-  ```
-- Or use Option 1 (GitHub Actions) so the deploy runs on GitHub’s servers.
+Your site will be at **https://aswin603.github.io/aswin-portfolio/** (can take 1–2 minutes after deploy).
 
-## Vite config
+## What’s already set in this repo
 
-`vite.config.js` already has `base: '/aswin-portfolio/'` so assets load correctly on GitHub Pages.
+- **Vite** `base: '/aswin-portfolio/'` in `vite.config.js` so assets and routes work on GitHub Pages.
+- **Videos** in Hero and Tech Stack use the base URL so they load on the live site.
+- **Workflow** `.github/workflows/deploy-gh-pages.yml`: on every push to `main` it builds and pushes `dist/` to the `gh-pages` branch.

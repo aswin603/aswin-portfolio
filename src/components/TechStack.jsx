@@ -35,7 +35,7 @@ export default function TechStack({ onObserve }) {
         playsInline
         aria-hidden="true"
       >
-        <source src="/chipbg.mp4" type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}chipbg.mp4`} type="video/mp4" />
       </video>
       <div className="container" ref={ref}>
         <h2 className="section-title tech-stack-title animate-on-scroll">Tech Stack</h2>

@@ -1,5 +1,6 @@
-# Dependencies
+# Dependencies and caches
 node_modules/
+.vite/
 
 # Build output (Actions builds on GitHub)
 dist/

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const HERO_VIDEO_MOBILE = '/phoneanimmob.mp4';
-const HERO_VIDEO_DESKTOP = '/phoneanimpc.mp4';
+const BASE = import.meta.env.BASE_URL;
+const HERO_VIDEO_MOBILE = `${BASE}phoneanimmob.mp4`;
+const HERO_VIDEO_DESKTOP = `${BASE}phoneanimpc.mp4`;
 const MOBILE_BREAKPOINT = 768;
 
 export default function Hero() {

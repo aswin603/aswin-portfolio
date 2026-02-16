@@ -1,4 +1,5 @@
-# Build and push dist/ to gh-pages branch (use "Deploy from a branch" in Settings → Pages)
+# Build and deploy to GitHub Pages (avoids Windows ENAMETOOLONG when using gh-pages locally)
+# Pushes dist/ to gh-pages branch — set Settings → Pages → Source to "Deploy from a branch", branch: gh-pages
 name: Deploy to GitHub Pages
 
 on:
